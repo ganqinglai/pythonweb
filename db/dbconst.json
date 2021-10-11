@@ -1,0 +1,115 @@
+{
+    "login": 
+        {
+            "add":
+                {
+                    "table":"CZY",
+                    "field":"USERNAME, PWD, SDATE, NUM, EDATETIME, ETIME, TEL",
+                    "value":"'{username}', '{pwd}', '{sdate}', {num}, '{edatetime}', '{etime}', '{tel}'"
+                },
+            "modify":
+                {
+                    "table":"CZY",
+                    "field":"PWD='{pwd}', TEL='{tel}'",
+                    "where":"USERNAME = '{username}'"
+                },
+            "del":
+                {
+                    "table":"CZY",
+                    "where":"USERNAME = '{username}' AND PWD='{pwd}'"
+                },
+            "auth":
+                {
+                    "table":"CZY",
+                    "field":"USERNAME, PWD",
+                    "where":"USERNAME = '{username}' AND PWD='{pwd}'"                
+                }
+        },
+    "jh": 
+        {
+            "add":
+                [
+                    {
+                        "table":"JHD",
+                        "field":"ID, CK, JE",
+                        "value":"'{id}', {ck}, {je}"
+                    },
+                    {
+                        "table":"JHMX",
+                        "field":"ID, SPID, SL, DZL",
+                        "value":"'{id}', '{spid}', {sl}, {dzl}"
+                    }
+                ],
+            "modify":
+                [
+                    {
+                        "table":"JHD",
+                        "field":"JE={je}",
+                        "where":"ID = '{id}'"
+                    },
+                    {
+                        "table":"JHMX",
+                        "field":"SL={sl}, DZL={dzl}",
+                        "where":"ID = '{id}'"
+                    }
+                ],
+            "del":
+                [
+                    {
+                        "table":"JHD",
+                        "where":"ID = '{id}'"
+                    },
+                    {
+                        "table":"JHMX",
+                        "where":"ID = '{id}'"
+                    }                    
+                ],
+            "query":
+            [
+                {
+                    "table":"JHD",
+                    "field":"ID, CK, JE",
+                    "where":"ID like '%{id}%'"
+                },
+                {
+                    "table":"JHMX",
+                    "field":"SPID, SL, DZL",
+                    "where":"ID like '%{id}%'"
+                }
+            ]                
+        },
+        "img": 
+        {
+            "add":
+                [
+                    {
+                        "table":"IMG",
+                        "field":"GUID, IMGA, IMGB",
+                        "value":"'{guid}', '{imga}', '{imgb}'"
+                    }
+                ],
+            "modify":
+                [
+                    {
+                        "table":"IMG",
+                        "field":"IMGA = {imga}, IMGB = {imgb},",
+                        "where":"GUID = '{guid}'"
+                    }
+                ],
+            "del":
+                [
+                    {
+                        "table":"IMG",
+                        "where":"GUID = '{guid}'"
+                    }
+                ],
+            "query":
+            [
+                {
+                    "table":"IMG",
+                    "field":"IMGA, IMGB",
+                    "where":"GUID like '%{guid}%'"
+                }
+            ]                
+        }        	
+}
